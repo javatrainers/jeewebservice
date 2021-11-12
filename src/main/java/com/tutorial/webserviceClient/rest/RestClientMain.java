@@ -15,8 +15,8 @@ import com.tutorial.webserviceClient.rest.Output;
 public class RestClientMain {
 
 	public static void main(String[] args) {
-		testSubP(); 
-		
+		//testSubP(); 
+		testMultiplyJsonReq();
 		/*
 		testAdd(); // Consume get rest service with path param
 		testSub(); // Consume get rest service with query string input

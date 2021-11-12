@@ -17,15 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.net.HttpHeaders;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.*;
 
 @RestController
+@Api(description="this is my service to test get and post webservice")
+
 public class RestCalculator {
-	
-	 
+		 
 	// http://localhost:8888/addCal/12/10
 	Logger log=Logger.getLogger("RestCalculator");
+	@ApiOperation(value="this is used for adding 2 numbers")
 	@RequestMapping(value = "/addCal/{param1}/{param2}", method = RequestMethod.GET)
 	public int add(@PathVariable(name="param1") int param1, @PathVariable int param2) throws Exception {
 		log.debug("debugging");
@@ -37,16 +38,7 @@ public class RestCalculator {
 	
 	return sum;
 	}
-
 	
-	
-	// http://localhost/subCalP?param1=10&param2=5
-	@RequestMapping(value = "/subCalP", method = RequestMethod.POST)
-	public int subP(@RequestParam("param1") int a, @RequestParam("param2") int b) {
-		log.info("sub hello log4j");
-		int sub=a - b;
-		return sub;
-	}
 	
 	// http://localhost/subCal?param1=10&param2=5
 	@RequestMapping(value = "/subCal", method = RequestMethod.GET)

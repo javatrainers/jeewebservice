@@ -65,33 +65,27 @@
 		
 	</dependencies>
 
+	
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.6</version>
 				<executions>
 					<execution>
-					
-						<configuration>
-							<wsdlUrls>
-								<wsdlUrl>http://localhost:6060/math?wsdl</wsdlUrl>
-								
-							</wsdlUrls>
-							<packageName>com.tutorial.webserviceClient.soap</packageName>
-							<keep>true</keep>
-							<sourceDestDir>src/main/java</sourceDestDir>
-						</configuration>
 						<goals>
 							<goal>wsimport</goal>
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<wsdlUrls>
+						<wsdlUrl>http://localhost:7070/math?wsdl</wsdlUrl>
+					</wsdlUrls>
+					<packageName>com.tutorial.webserviceClient.soap.stub</packageName>
+					<sourceDestDir>src/main/java/</sourceDestDir>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

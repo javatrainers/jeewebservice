@@ -7,10 +7,10 @@ public class Output {
 	public int div;
 	/*
 	{
-		"sum":12,
-		"sub":12,
-		"mul":1231,
-		"div":12
+		"sum":3,
+		"sub":-1,
+		"mul":2,
+		"div":0
 	}
 	*/
 	public int getSum() {

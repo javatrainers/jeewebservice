@@ -3,13 +3,6 @@ package com.tutorial.webservice.rest;
 public class Input {
 	public int param1;
 	public int param2;
-	
-/*
- {
- 	"param1":10,
- 	"param2":20
- }
- */
 	public int getParam1() {
 		return param1;
 	}
@@ -22,4 +15,6 @@ public class Input {
 	public void setParam2(int param2) {
 		this.param2 = param2;
 	}
+
+	
 }

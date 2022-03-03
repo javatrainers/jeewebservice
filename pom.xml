@@ -66,6 +66,7 @@
 	</dependencies>
 
 	
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -81,7 +82,7 @@
 				</executions>
 				<configuration>
 					<wsdlUrls>
-						<wsdlUrl>http://localhost:7070/math?wsdl</wsdlUrl>
+						<wsdlUrl>http://localhost:6060/math?wsdl</wsdlUrl>
 					</wsdlUrls>
 					<packageName>com.tutorial.webserviceClient.soap.stub</packageName>
 					<sourceDestDir>src/main/java/</sourceDestDir>

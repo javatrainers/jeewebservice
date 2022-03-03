@@ -20,12 +20,14 @@ import com.google.common.net.HttpHeaders;
 import io.swagger.annotations.*;
 
 @RestController
+@Api(description="this is my service to test get and post webservice")
 public class RestCalculator {
 		 
 	// http://localhost/addCal/12/10
 	Logger log=Logger.getLogger("RestCalculator");
 	@RequestMapping(value = "/addCal/{param1}/{param2}", 
 			method = RequestMethod.GET)
+	@ApiOperation(value="this is used for adding 2 numbers")
 	public int add(@PathVariable int param1,@PathVariable int param2) throws Exception {
 		int	sum=param1 + param2;
 		return sum;

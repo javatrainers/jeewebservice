@@ -18,36 +18,36 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.net.HttpHeaders;
 
 import io.swagger.annotations.*;
-
+// spring annotation
 @RestController
-@Api(description="this is my service to test get and post webservice")
 public class RestCalculator {
-		 
-	// http://localhost/addCal/12/10
-	Logger log=Logger.getLogger("RestCalculator");
-	@RequestMapping(value = "/addCal/{param1}/{param2}", 
-			method = RequestMethod.GET)
-	@ApiOperation(value="this is used for adding 2 numbers")
-	public int add(@PathVariable int param1,@PathVariable int param2) throws Exception {
-		int	sum=param1 + param2;
-		return sum;
-	}
 	
 	
-	// http://localhost/subCal?param1=70&param2=20
-	@RequestMapping(value = "/subCal", 
-			method = RequestMethod.GET)
-	public int sub(
-			@RequestParam int param1
-			, @RequestParam int param2) {
-		int sub=param1 - param2;
-		return sub;
+	// http://www.google.com/areaOfSquare = Connected to method areaOfSq
+	// @PathVariable = http url input SHOULD BE CONNECTED to Method input
+	
+	// http://localhost/areaOfSquare/5
+		
+	@RequestMapping(value = "/areaOfSquare/{input1}", method = RequestMethod.GET)
+	public int areaOfSq(@PathVariable("input1") int sides) {
+		int areofSquare=sides * sides;
+		return areofSquare;
 	}
+	
+	//http://localhost/areaOfRectangle?length=5&breadth=4
+	// from http url "/areaOfRectangle" CONNECTED to methd areaOfRec
+	// from http url inputs "length/breadth" CONNECTED to method input "len/bre"
+	@RequestMapping(value = "/areaOfRectangle", method = RequestMethod.GET)
+	public int areaOfRec(@RequestParam("length") int len,
+			@RequestParam("breadth") int bre) {
+		int areaOfRe=len * bre;
+		return areaOfRe;
+	}
+	
 	
 	// http://localhost/jsonReqMul - send json in request body,
 	// input type json string
-	@RequestMapping(value = "/jsonReqMul", 
-			method = RequestMethod.POST, 
+	@RequestMapping(value = "/jsonReqMul",  method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	public int mulCalculator(@RequestBody Input in) {
 		// "Input" parameter is json compliant java program
@@ -65,8 +65,7 @@ public class RestCalculator {
 	}
 	 */
 	@RequestMapping(value = "/jsonRes/{param1}/{param2}", 
-			method = RequestMethod.GET, 
-			produces = MediaType.APPLICATION_JSON_VALUE)
+			method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
 	public Output calculator(@PathVariable int param1, @PathVariable int param2) {
 		Output res = new Output();
 		res.setSum(param1 + param2);

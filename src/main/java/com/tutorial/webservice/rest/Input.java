@@ -15,6 +15,5 @@ public class Input {
 	public void setParam2(int param2) {
 		this.param2 = param2;
 	}
-
 	
 }

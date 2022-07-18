@@ -20,6 +20,7 @@ import com.google.common.net.HttpHeaders;
 import io.swagger.annotations.*;
 // spring annotation
 @RestController
+@Api(description="this is my web service to calulcate area")
 public class RestCalculator {
 	
 	
@@ -29,6 +30,7 @@ public class RestCalculator {
 	// http://localhost/areaOfSquare/5
 		
 	@RequestMapping(value = "/areaOfSquare/{input1}", method = RequestMethod.GET)
+	@ApiOperation(value="this is webservice that will calulcte are of square for a given side")
 	public int areaOfSq(@PathVariable("input1") int sides) {
 		int areofSquare=sides * sides;
 		return areofSquare;
@@ -55,23 +57,18 @@ public class RestCalculator {
 		return mul;
 	}
 	
-	// http://localhost/jsonRes/1/2 >> input/request in URL
-	/* OUTPUT/RESPONSE
-	 {
-		"sum":3,
-		"sub":-1,
-		"mul":2,
-		"div":0
-	}
-	 */
-	@RequestMapping(value = "/jsonRes/{param1}/{param2}", 
-			method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
-	public Output calculator(@PathVariable int param1, @PathVariable int param2) {
-		Output res = new Output();
-		res.setSum(param1 + param2);
-		res.setSub(param1 - param2);
-		res.setMul(param1 * param2);
-		res.setDiv(param1 / param2);
-		return res;
-	}
+	// http://localhost/complexOutput/50/10
+	@RequestMapping(value = "/complexOutput/{input1}/{input2}", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public 	ComplexJsonOutput  complexOutput(
+			@PathVariable("input1") int a, 
+			@PathVariable("input2") int b){
+		ComplexJsonOutput  co=new ComplexJsonOutput  ();
+		co.add=a+b;
+		co.sub=a-b;
+		co.mul=a*b;
+		co.div=a/b;
+		return co;
+	} 
 }

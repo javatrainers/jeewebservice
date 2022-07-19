@@ -24,8 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Exception_QNAME = new QName("http://soap.webservice.tutorial.com/", "Exception");
     private final static QName _Add_QNAME = new QName("http://soap.webservice.tutorial.com/", "add");
     private final static QName _AddResponse_QNAME = new QName("http://soap.webservice.tutorial.com/", "addResponse");
+    private final static QName _Div_QNAME = new QName("http://soap.webservice.tutorial.com/", "div");
+    private final static QName _DivResponse_QNAME = new QName("http://soap.webservice.tutorial.com/", "divResponse");
+    private final static QName _Mul_QNAME = new QName("http://soap.webservice.tutorial.com/", "mul");
+    private final static QName _MulResponse_QNAME = new QName("http://soap.webservice.tutorial.com/", "mulResponse");
     private final static QName _Sub_QNAME = new QName("http://soap.webservice.tutorial.com/", "sub");
     private final static QName _SubResponse_QNAME = new QName("http://soap.webservice.tutorial.com/", "subResponse");
 
@@ -34,6 +39,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Exception }
+     * 
+     */
+    public Exception createException() {
+        return new Exception();
     }
 
     /**
@@ -53,6 +66,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Div }
+     * 
+     */
+    public Div createDiv() {
+        return new Div();
+    }
+
+    /**
+     * Create an instance of {@link DivResponse }
+     * 
+     */
+    public DivResponse createDivResponse() {
+        return new DivResponse();
+    }
+
+    /**
+     * Create an instance of {@link Mul }
+     * 
+     */
+    public Mul createMul() {
+        return new Mul();
+    }
+
+    /**
+     * Create an instance of {@link MulResponse }
+     * 
+     */
+    public MulResponse createMulResponse() {
+        return new MulResponse();
+    }
+
+    /**
      * Create an instance of {@link Sub }
      * 
      */
@@ -66,6 +111,19 @@ public class ObjectFactory {
      */
     public SubResponse createSubResponse() {
         return new SubResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "Exception")
+    public JAXBElement<Exception> createException(Exception value) {
+        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 
     /**
@@ -92,6 +150,58 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "addResponse")
     public JAXBElement<AddResponse> createAddResponse(AddResponse value) {
         return new JAXBElement<AddResponse>(_AddResponse_QNAME, AddResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Div }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Div }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "div")
+    public JAXBElement<Div> createDiv(Div value) {
+        return new JAXBElement<Div>(_Div_QNAME, Div.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DivResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DivResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "divResponse")
+    public JAXBElement<DivResponse> createDivResponse(DivResponse value) {
+        return new JAXBElement<DivResponse>(_DivResponse_QNAME, DivResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Mul }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Mul }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "mul")
+    public JAXBElement<Mul> createMul(Mul value) {
+        return new JAXBElement<Mul>(_Mul_QNAME, Mul.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MulResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link MulResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.webservice.tutorial.com/", name = "mulResponse")
+    public JAXBElement<MulResponse> createMulResponse(MulResponse value) {
+        return new JAXBElement<MulResponse>(_MulResponse_QNAME, MulResponse.class, null, value);
     }
 
     /**

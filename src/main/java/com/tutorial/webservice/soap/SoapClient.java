@@ -8,7 +8,7 @@ public class SoapClient {
 	public static void main(String[] args) {
 		SoapCalculatorService service=new SoapCalculatorService();
 		SoapCalculator port=service.getSoapCalculatorPort();
-		int result=port.add(100, 35);
+		int result=port.add(100, 25);
 		System.out.println(result);
 		
 	}

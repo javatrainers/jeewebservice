@@ -7,6 +7,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
+import javax.xml.ws.FaultAction;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -51,6 +52,24 @@ public interface SoapCalculator {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "mul", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.Mul")
+    @ResponseWrapper(localName = "mulResponse", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.MulResponse")
+    @Action(input = "http://soap.webservice.tutorial.com/SoapCalculator/mulRequest", output = "http://soap.webservice.tutorial.com/SoapCalculator/mulResponse")
+    public int mul(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "sub", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.Sub")
     @ResponseWrapper(localName = "subResponse", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.SubResponse")
     @Action(input = "http://soap.webservice.tutorial.com/SoapCalculator/subRequest", output = "http://soap.webservice.tutorial.com/SoapCalculator/subResponse")
@@ -59,5 +78,28 @@ public interface SoapCalculator {
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         int arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns int
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "div", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.Div")
+    @ResponseWrapper(localName = "divResponse", targetNamespace = "http://soap.webservice.tutorial.com/", className = "com.tutorial.webserviceClient.soap.stub.DivResponse")
+    @Action(input = "http://soap.webservice.tutorial.com/SoapCalculator/divRequest", output = "http://soap.webservice.tutorial.com/SoapCalculator/divResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://soap.webservice.tutorial.com/SoapCalculator/div/Fault/Exception")
+    })
+    public int div(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1)
+        throws Exception_Exception
+    ;
 
 }

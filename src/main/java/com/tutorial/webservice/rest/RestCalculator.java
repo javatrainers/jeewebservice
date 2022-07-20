@@ -23,12 +23,28 @@ import io.swagger.annotations.*;
 @Api(description="this is my web service to calulcate area")
 public class RestCalculator {
 	
+	Logger log=Logger.getLogger("RestCalculator");
 	
 	// http://www.google.com/areaOfSquare = Connected to method areaOfSq
 	// @PathVariable = http url input SHOULD BE CONNECTED to Method input
 	
 	// http://localhost/areaOfSquare/5
-		
+	
+	// debug > info > warn > error
+	@RequestMapping(value = "/divide/{name}/{input1}/{input2}", method = RequestMethod.GET)
+	public int div(@PathVariable("name") String name,@PathVariable("input1") int a,@PathVariable("input2") int b) {
+		try {
+			log.debug("1");
+			log.info("2");
+			int res=a/b;
+			log.warn("3");
+		}
+		catch(Exception e) {
+			log.error("4",e);
+		}
+		return res;
+	}
+	
 	@RequestMapping(value = "/areaOfSquare/{input1}", method = RequestMethod.GET)
 	@ApiOperation(value="this is webservice that will calulcte are of square for a given side")
 	public int areaOfSq(@PathVariable("input1") int sides) {

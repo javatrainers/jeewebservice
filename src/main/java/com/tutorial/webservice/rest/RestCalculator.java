@@ -33,10 +33,11 @@ public class RestCalculator {
 	// debug > info > warn > error
 	@RequestMapping(value = "/divide/{name}/{input1}/{input2}", method = RequestMethod.GET)
 	public int div(@PathVariable("name") String name,@PathVariable("input1") int a,@PathVariable("input2") int b) {
+		int res=0;
 		try {
 			log.debug("1");
 			log.info("2");
-			int res=a/b;
+			res=a/b;
 			log.warn("3");
 		}
 		catch(Exception e) {
